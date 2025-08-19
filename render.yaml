@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: backend-service
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/*.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: backend-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: Api
+          property: password
+
+databases:
+  - name: backend-db
+    plan: free
