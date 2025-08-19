@@ -1,7 +1,7 @@
 services:
   - type: web
     name: backend-service
-    env: java
+    env: docker
     plan: free
     buildCommand: ./mvnw clean package -DskipTests
     startCommand: java -jar target/*.jar
