@@ -18,5 +18,5 @@ services:
           property: password
 
 databases:
-  - name: backend-db
+  -  name: Api
     plan: free
