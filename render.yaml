@@ -14,9 +14,9 @@ services:
           property: user
       - key: SPRING_DATASOURCE_PASSWORD
         fromDatabase:
-          name: Api
+          name: backend-db
           property: password
 
 databases:
-  -  name: Api
+  - name: backend-db
     plan: free
