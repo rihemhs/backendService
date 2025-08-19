@@ -1,10 +1,9 @@
 services:
   - type: web
     name: backend-service
-    env: standard
+    env: docker       # NOT runtime: docker
     plan: free
     buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/*.jar
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
